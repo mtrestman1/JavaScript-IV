@@ -58,6 +58,7 @@ const fred = new Instructor({
 * Person receives `speak` as a method.
 * This method logs out a phrase `Hello my name is Fred, I am from Bedrock` where `name` and `location` are the object's own props
 
+
 #### Instructor
 
 * Now that we have a Person as our base class, we'll build our Instructor class.
@@ -69,6 +70,9 @@ const fred = new Instructor({
 * Instructor has the following methods:
   * `demo` receives a `subject` string as an argument and logs out the phrase 'Today we are learning about {subject}' where subject is the param passed in.
   * `grade` receives a `student` object and a `subject` string as arguments and logs out '{student.name} receives a perfect score on {subject}'
+
+
+
 
 #### Student
 

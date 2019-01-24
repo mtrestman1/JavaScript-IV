@@ -43,10 +43,10 @@ class Instructor extends Person {
         this.catchPhrase = instructor.catchPhrase;
     }
     demo(subject) {
-        console.log(`Today we are learning about ${this.subject}`)
+        return `Today we are learning about ${subject}`
     }
     grade(student, subject) {
-        console.log(`${student.name} receives a perfect score on ${subject}`)
+        return `${student.name} receives a perfect score on ${subject}`
     }
 }
 
@@ -72,14 +72,14 @@ class Student extends Person {
         this.className = student.className;
         this.favSubjects = student.favSubjects;
     }
-    listsSubjects(this, fave1, fave2, fave3) {
-        console.log(`Favorite subjects are ${fave1}, ${fave2}, and ${fave3}.`)
+    listsSubjects(fave1, fave2, fave3) {
+        return `Favorite subjects are ${fave1}, ${fave2}, and ${fave3}.`
     }
-    PRAssignment(this, subject) {
-        console.log(`${student.name} has submitted a PR for ${subject}`)
+    PRAssignment(subject) {
+        return `${student.name} has submitted a PR for ${subject}`
     }
-    sprintChallenge(this, subject) {
-        console.log(`${student.name} has begun sprint challenge on ${subject}`)
+    sprintChallenge(subject) {
+        return `${student.name} has begun sprint challenge on ${subject}`
     }
 }
 
@@ -102,10 +102,74 @@ class ProjectManager extends Instructor {
         this.gradClassName = pm.gradClassName;
         this.favInstructor = pm.favInstructor;
     }
-    standUp(this, channel) {
-        console.log(`${this.name} announces to ${channel}, @channel standy times!`)
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standy times!`
     }
-    debugsCode(this, student, subject) {
-        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`)
+    debugsCode(student, subject) {
+       return `${this.name} debugs ${student.name}'s code on ${subject}`
     }
 }
+
+
+
+// These are the Instructors, Students, and PM's for our example.
+
+const josh = new Instructor({
+    name: 'Josh',
+    age: 38,
+    location: 'Utah?',
+    gender: 'male',
+    specialty: 'Front-end',
+    favLanguage: 'Javascript',
+    catchPhrase: 'Lets Get Classy'
+});
+
+const ryan = new Instructor({
+    name: 'Ryan',
+    age: 35,
+    location: 'internet',
+    gender: 'male',
+    specialty: 'Front-end',
+    favLanguage: 'react',
+    catchPhrase: 'coding is easy!'
+});
+
+const max = new Student({
+    name: 'Max',
+    age: 26,
+    location: 'Pittsburgh',
+    gender: 'male',
+    previousBackground: 'Ran A Medical Transportation Company',
+    className: 'Web17',
+    favSubjects: ['HTML, CSS, JavaScript']
+});
+
+const sara = new Student({
+    name: 'Sara',
+    age: 35,
+    location: 'Boulder',
+    gender: 'female',
+    previousBackground: 'Doctor',
+    className: 'Web16',
+    favSubjects: ['HTML, CSS, JavaScript']
+});
+
+const john = new ProjectManager({
+    name: 'John',
+    age: 32,
+    location: 'San Francisco',
+    gender: 'male',
+    gradClassName: 'CS4',
+    favInstructor: 'Josh'
+});
+
+const meaghan = new ProjectManager({
+    name: 'Meaghan',
+    age: 29,
+    location: 'Miami',
+    gender: 'female',
+    gradClassName: 'CS1',
+    favInstructor: 'Ryan'
+});
+
+console.log(john.debugsCode(max, 'HTML'));
